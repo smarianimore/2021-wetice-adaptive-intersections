@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/white.css" id="theme" />
 
     <!-- Theme used for syntax highlighted code -->
     <link
@@ -23,56 +23,29 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section
-          data-markdown
-          data-separator="-----"
-          data-separator-vertical="---"
-        >
-          <textarea data-template>
-            # Title Page
+        <section data-markdown>
+          ACEC @ WETICE, 27/20/2021
+          ___
+          ### An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections
+          ___
+          *Nicholas Glorio, **Stefano Mariani**, Giacomo Cabri, Franco Zambonelli*
+        </section>
+        <section data-markdown>
+          ### Motivation & Goal
+          - current research on self-driving mostly about *individual* vehicles
+          - but *cooperative driving* is necessary for collective vehicles in many situations
+              - e.g. crossing intersections
+          - hence we study **intersection management**
+              - **compare** state of art approaches
+              - propose **adaptive** approach
+        </section>
+        <section data-markdown>
+          ### Intersection crossing: problems
 
-            ### Date
+        </section>
+        <section data-markdown>
+          ### Intersection crossing: solutions
 
-            -----
-            
-            Vertical slides are separated by `- - -`
-            
-            ---
-            
-            Vertical slides are separated by `- - -` .
-            
-            ---
-            
-            Vertical slides are separated by `- - -` ..
-     
-            -----
-            
-            # title
-            ## skills
-            * one
-            * two
-            * three
-            
-            ## heading
-            8. three
-            1. one
-            1. two
-         
-            
-            -----
-            
-
-            # Questions
-
-            -----
-
-            ## made with
-
-            #### [reveal.js](https://github.com/hakimel/reveal.js)
-
-            #### [excalidraw](https://github.com/excalidraw/excalidraw)
-
-          </textarea>
         </section>
       </div>
     </div>
@@ -88,6 +61,8 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+        progress: true,
+        //autoSlide: 3000,
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
