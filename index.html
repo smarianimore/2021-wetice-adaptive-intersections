@@ -8,6 +8,12 @@
     />
 
     <title>Adaptive Intersections @ WETICE 2021</title>
+    <meta content="Talk 'An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections' given by Stefano Mariani at WETICE 2021" name="description">
+    <meta content="Stefano Mariani" name="author">
+
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <link rel="stylesheet" href="reveal.js/dist/reset.css" />
     <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -19,34 +25,82 @@
       href="reveal.js/plugin/highlight/monokai.css"
       id="highlight-theme"
     />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-markdown>
-          ACEC @ WETICE, 27/20/2021
-          ___
-          ### An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections
-          ___
-          *Nicholas Glorio, **Stefano Mariani**, Giacomo Cabri, Franco Zambonelli*
-        </section>
-        <section data-markdown>
-          ### Motivation & Goal
-          - current research on self-driving mostly about *individual* vehicles
-          - but *cooperative driving* is necessary for collective vehicles in many situations
-              - e.g. crossing intersections
-          - hence we study **intersection management**
-              - **compare** state of art approaches
-              - propose **adaptive** approach
-        </section>
-        <section data-markdown>
-          ### Intersection crossing: problems
 
+        <section data-transition="convex">
+          <p><small> ACEC @ WETICE, 27/20/2021 </small></p>
+          <hr>
+          <h3> An Adaptive Approach for the Coordination of Autonomous Vehicles at Intersections </h3>
+          <hr>
+          <p> Nicholas Glorio, <a href="https://smarianimore.github.io">Stefano Mariani</a>, Giacomo Cabri, Franco Zambonelli </p>
+          <hr>
+          <p><small><em> Università di Modena e Reggio Emilia </em></small></p>
         </section>
-        <section data-markdown>
-          ### Intersection crossing: solutions
 
+        <section data-transition="convex">
+          <h3> Motivation & Goal </h3>
+          <hr>
+          <ul>
+            <li> current research on self-driving mostly about <em>individual</em> vehicles </li>
+            <div class="fragment">
+              <li> but <em>cooperative driving</em> is necessary for collective vehicles in many situations </li>
+              <ul>
+                <li> e.g. crossing intersections </li>
+              </ul>
+            </div>
+            <div class="fragment">
+              <li> hence we study <strong>intersection management</strong> </li>
+              <ul>
+                <li> <strong>compare</strong> state of art approaches </li>
+                <li> propose <strong>adaptive</strong> approach </li>
+              </ul>
+            </div>
+          </ul>
         </section>
+
+        <section data-transition="convex">
+          <h3> Intersection crossing: problem </h3>
+          <hr>
+          <ul>
+            <li> decision making process orchestrating vehicles' actions </li>
+            <ul>
+              <li> <strong>necessary</strong> to achieve own goal </li>
+              <li> <em>competitive</em> access to <em>shared</em> resource </li>
+            </ul>
+            <li class="fragment"> poses 3 challenges </li>
+            <ul>
+              <li class="fragment"> <em>safety</em>: no collisions </li>
+              <li class="fragment"> <em>liveness</em>: right of way for everyone </li>
+              <li class="fragment"> <em>quality</em>: max./min. throughput/delay </li>
+            </ul>
+          </ul>
+        </section>
+
+        <section data-transition="convex">
+          <h3> Intersection crossing: solutions </h3>
+        </section>
+
+        <section data-transition="convex">
+          <h3> Thanks </h3>
+          <h3> for your attention </h3>
+          <hr>
+          <p><a href="https://smarianimore.github.io"> Stefano Mariani </a></p>
+          <hr>
+          <p><em> Università di Modena e Reggio Emilia </em></p>
+        </section>
+
       </div>
     </div>
 
@@ -55,6 +109,7 @@
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
     <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="plugin/math/math.js"></script>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
@@ -63,9 +118,9 @@
         hash: true,
         progress: true,
         //autoSlide: 3000,
-
+        pdfSeparateFragments: false,
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMath],
       });
     </script>
   </body>
