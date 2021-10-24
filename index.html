@@ -71,25 +71,81 @@
         </section>
 
         <section data-transition="convex">
-          <h3> Intersection crossing: problem </h3>
-          <hr>
-          <ul>
-            <li> decision making process orchestrating vehicles' actions </li>
+          <section data-transition="slide">
+            <h3> Intersection crossing: problem </h3>
+            <hr>
             <ul>
-              <li> <strong>necessary</strong> to achieve own goal </li>
-              <li> <em>competitive</em> access to <em>shared</em> resource </li>
+              <li> decision making process orchestrating vehicles' actions </li>
+              <ul>
+                <li> <strong>necessary</strong> to achieve own goal </li>
+                <li> <em>competitive</em> access to <em>shared</em> resource </li>
+              </ul>
+              <li class="fragment"> poses 3 challenges </li>
+              <ul>
+                <li class="fragment"> <em>safety</em>: no collisions </li>
+                <li class="fragment"> <em>liveness</em>: right of way for everyone </li>
+                <li class="fragment"> <em>quality</em>: max./min. throughput/delay </li>
+              </ul>
             </ul>
-            <li class="fragment"> poses 3 challenges </li>
+          </section>
+          <section data-transition="slide">
+            <h3> Intersection crossing: solutions </h3>
+            <hr>
             <ul>
-              <li class="fragment"> <em>safety</em>: no collisions </li>
-              <li class="fragment"> <em>liveness</em>: right of way for everyone </li>
-              <li class="fragment"> <em>quality</em>: max./min. throughput/delay </li>
+              <li> <em>today</em>: traffic light, precedence rules </li>
+              <ul>
+                <li> safe & inefficient </li>
+                <li> efficient & unsafe </li>
+              </ul>
+              <div class="fragment">
+                <li> <em>tomorrow</em>: thanks to V2I / V2V </li>
+                <ul>
+                  <li> reservation </li>
+                  <li> negotiation (e.g. auction) </li>
+                </ul>
+              </div>
             </ul>
-          </ul>
+          </section>
         </section>
 
         <section data-transition="convex">
-          <h3> Intersection crossing: solutions </h3>
+          <section data-transition="slide">
+            <h3> Performance comparison </h3>
+            <hr>
+            <ul>
+              <li> SUMO simulations, controlled via TraCi API (<a href="https://www.eclipse.org/sumo/">www.eclipse.org/sumo/</a>) </li>
+              <li> reservation based on temporal allocations of the intersection area, divided into a grid of occupancy cells [1] </li>
+              <li> English auctions with virtual wallets [2] </li>
+            </ul>
+            <p style="color:grey"><small><em> [1] Kurt M. Dresner, Peter Stone: A Multiagent Approach to Autonomous Intersection Management. J. Artif. Intell. Res. 31: 591-656 (2008) </em></small></p>
+            <p style="color:grey"><small><em> [2] Dustin Carlino, Stephen D. Boyles, Peter Stone: Auction-based autonomous intersection management. ITSC 2013: 529-534 </em></small></p>
+          </section>
+          <section data-transition="slide">
+            <h3> Simulation settings </h3>
+            <hr>
+            <style>
+              .container{
+                display: flex;
+              }
+              .col{
+                flex: 1;
+              }
+            </style>
+            <div class="container">
+              <div class="col">
+                <img width="512" height="384" align="left" data-src="junction.png">
+              </div>
+              <div class="col">
+                <ul>
+                  <li> single 4-ways junction </li>
+                  <li> 3 lanes for each way </li>
+                  <li> 1 to 4 vehicles spawned per second </li>
+                  <li> 33/66 % of left turning </li>
+                  <li> 30 runs for each params combination </li>
+                </ul>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section data-transition="convex">
