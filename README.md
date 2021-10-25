@@ -18,5 +18,4 @@ Reveal.js template presentation as a GitHub repo Template: [here](https://github
 
 ## License
 
-* MIT Licensed as per Reveal.js itself
-* 
+* MIT Licensed as per Reveal.js itself 
