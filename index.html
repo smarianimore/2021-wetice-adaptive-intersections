@@ -102,6 +102,7 @@
                 <ul>
                   <li> reservation </li>
                   <li> negotiation (e.g. auction) </li>
+                  <li> others (e.g. DCOP, game-theoretic, self-org) </li>
                 </ul>
               </div>
             </ul>
@@ -114,9 +115,10 @@
             <hr>
             <ul>
               <li> SUMO simulations, controlled via TraCi API (<a href="https://www.eclipse.org/sumo/">www.eclipse.org/sumo/</a>) </li>
-              <li> reservation based on temporal allocations of the intersection area, divided into a grid of occupancy cells [1] </li>
-              <li> English auctions with virtual wallets [2] </li>
+              <li> <strong>reservation</strong> based on temporal allocations of the intersection area, divided into a grid of occupancy cells [1] </li>
+              <li> <strong>English auctions</strong> with virtual wallets [2] </li>
             </ul>
+            <hr>
             <p style="color:grey"><small><em> [1] Kurt M. Dresner, Peter Stone: A Multiagent Approach to Autonomous Intersection Management. J. Artif. Intell. Res. 31: 591-656 (2008) </em></small></p>
             <p style="color:grey"><small><em> [2] Dustin Carlino, Stephen D. Boyles, Peter Stone: Auction-based autonomous intersection management. ITSC 2013: 529-534 </em></small></p>
           </section>
@@ -139,13 +141,131 @@
                 <ul>
                   <li> single 4-ways junction </li>
                   <li> 3 lanes for each way </li>
-                  <li> 1 to 4 vehicles spawned per second </li>
+                  <li> 1 to 4 vehicles/second (traffic condition) </li>
                   <li> 33/66 % of left turning </li>
                   <li> 30 runs for each params combination </li>
                 </ul>
               </div>
             </div>
           </section>
+          <section data-transition="slide">
+            <h3> Results </h3>
+            <hr>
+            <style>
+              .container{
+                display: flex;
+              }
+              .col{
+                flex: 1;
+              }
+            </style>
+            <div class="container">
+              <div class="col">
+                <img width="512" height="384" align="left" data-src="throughput_24-05-2021.png">
+              </div>
+              <div class="col">
+                <img width="512" height="384" align="left" data-src="st_dev_head_time_24-05-2021.png">
+              </div>
+            </div>
+            <ul>
+              <li class="fragment"> no approach works best across traffic conditions </li>
+              <li class="fragment"> no approach works best across performance metrics </li>
+            </ul>
+          </section>
+        </section>
+
+        <section data-transition="convex">
+          <section data-transition="slide">
+            <h3> Adaptive approach </h3>
+            <hr>
+            <ul>
+              <li class="fragment"> <strong>learn</strong> which approach works best in which traffic condition </li>
+              <li class="fragment"> <strong>apply</strong> the best approach known upon changing conditions </li>
+              <li class="fragment"> both with respect to a <em>target performance metric</em> </li>
+            </ul>
+            <hr>
+            <p class="fragment">
+              <small><em>municipalities already do this!<br>(e.g. traffic lights turned off at night)</em></small>
+            </p>
+          </section>
+          <section data-transition="slide">
+            <h3> Adaptive Intersection Manager (AIM) </h3>
+            <hr>
+            <ol>
+              <div class="fragment">
+                <li> learning phase (naive <em>Q-learning</em>*): </li>
+                <small><ol>
+                  <li> randomly select coordination approach $A$ </li>
+                  <li> apply $A$ for a given time $T$ </li>
+                  <li> monitor both traffic conditions $C$ and target performance metric $M$ during $T$ </li>
+                </ol></small>
+              </div>
+              <div class="fragment">
+                <li> adaptation phase: </li>
+                <small><ol>
+                  <li> sample traffic condition $C$ </li>
+                  <li> lookup best approach $A$ for $C$ regarding $M$ </li>
+                  <li> apply $A$ until $C \rightarrow C'$ </li>
+                  <li> loop </li>
+                </ol></small>
+              </div>
+            </ol>
+            <hr>
+            <p class="fragment"><small><em> * action = application of $a \in A$ during $T$, reward = $M$ measured during $T$ </em></small></p>
+          </section>
+          <section data-transition="slide">
+            <h3> Results </h3>
+            <hr>
+            <style>
+              .container{
+                display: flex;
+              }
+              .col{
+                flex: 1;
+              }
+            </style>
+            <div class="container">
+              <div class="col">
+                <img width="512" height="384" align="left" data-src="th_training_th2.png">
+              </div>
+              <div class="col">
+                <img width="512" height="384" align="left" data-src="sv_training_sv2.png">
+              </div>
+            </div>
+            <ul>
+              <li class="fragment"> the AIM <em>pursues</em> the best $A$ known for every $C$ </li>
+              <li class="fragment"> the AIM accounts for the target $M$ to optimise </li>
+            </ul>
+          </section>
+        </section>
+
+        <section data-transition="convex">
+          <h3> Conclusion & outlook </h3>
+          <hr>
+          <style>
+            .container{
+              display: flex;
+            }
+            .col{
+              flex: 1;
+            }
+          </style>
+          <div class="container">
+            <div class="col fragment">
+              <ul>
+                <li> adaptive approach to intersection crossing presented </li>
+                <li> simulations validate approach empirically </li>
+                <li> promising results despite simplicity </li>
+              </ul>
+            </div>
+            <div class="col fragment">
+              <ul>
+                <li> extend to more complex measure of $C$ </li>
+                <li> extend to more $m \in M$ at once </li>
+                <li> extend to more sophisticated learning </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section data-transition="convex">
