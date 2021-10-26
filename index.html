@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -104,6 +104,29 @@
                   <li> negotiation (e.g. auction) </li>
                   <li> others (e.g. DCOP, game-theoretic, self-org) </li>
                 </ul>
+              </div>
+            </ul>
+          </section>
+          <section data-transition="slide">
+            <h3> Selected approaches </h3>
+            <hr>
+            <ul>
+              <li> precedence-based <strong>right of way</strong> as baseline </li>
+              <div class="fragment">
+                <li> centralised <strong>reservation-based</strong> as "best in class" </li>
+                <small><ul>
+                  <li> IM receives space-time reservations for intersection cells from approaching vehicles </li>
+                  <li> IM elaborates collision-free trajectories </li>
+                  <li> IM communicates back to vehicles their parameters for crossing (e.g. speed profile) </li>
+                </ul></small>
+              </div>
+              <div class="fragment">
+                <li> decentralised <strong>competitive auction</strong> as state-of-art </li>
+                <small><ul>
+                  <li> vehicles bid for space-time slots within the intersection </li>
+                  <li> non-colliding vehicles cross simultaneously </li>
+                  <li> a broker collects bids and ranks them to assign the right of way </li>
+                </ul></small>
               </div>
             </ul>
           </section>
